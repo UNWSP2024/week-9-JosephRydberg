@@ -9,9 +9,20 @@
 # It should handle any ValueError exceptions that are raised when the items that are read from the file 
 # are converted to a number.
 def sum_numbers_from_file():
-    ######################
-    # Add your code here #
-    ######################
+    total = 0
+    try:
+        for numbers in open("numbers.txt", "r"):
+            int(numbers)
+            total += int(numbers)
+
+    except IOError:
+        print("File not found or disk full")
+    except ValueError:
+        print("Found string looking for Integer")
+
+    print(total)
+
+
     print('In the sum_numbers_from_file function')
 
 # You don't need to change anything below this line:
